@@ -272,10 +272,10 @@
 
 <p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件）</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -P &quot;&quot;</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/cdn/docker/1.png" alt="image"></p>
+<p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/1.png" alt="image"></p>
 <p>3.进入到ssh目录（在容器中），可以看到两个文件，id_rsa为私钥，id_rsa.pub为公钥</p>
 <figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ～/.ssh</span><br></pre></td></tr></table></figure>
-<p><img src="/blog/cdn/docker/2.png" alt="image"></p>
+<p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/2.png" alt="image"></p>
 <p>4.将容器中的id_rsa.pub内的字符串拷贝追加到宿主机的authorized_keys文件中，即可实现SSH免密登录<br>容器机的id_rsa.pub文件路径：&#x2F;home&#x2F;用户名&#x2F;.ssh&#x2F;id_rsa.pub<br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：&#x2F;home&#x2F;yunzhou&#x2F;.ssh&#x2F;authorized_keys</p>
 <p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>
 
