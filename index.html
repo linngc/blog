@@ -79,9 +79,11 @@
 			
 				<li><a href="/blog/tags/Java/" target="_blank">Java</a></li>
 			
-				<li><a href="/blog/tags/Golang/" target="_blank">Golang</a></li>
+				<li><a href="/blog/tags/golang/" target="_blank">Golang</a></li>
 			
 				<li><a href="/blog/tags/Linux/" target="_blank">Linux</a></li>
+			
+				<li><a href="/blog/tags/docker/" target="_blank">Docker</a></li>
 			
 				<li><a href="/blog/tags/%E9%9A%8F%E7%AC%94/" target="_blank">随笔</a></li>
 			
@@ -171,6 +173,8 @@
 			
 				
 			
+				
+			
 			
 			
 			<nav class="header-nav">
@@ -203,17 +207,19 @@
 				<ul style="width: 70%">
 				
 				
-					<li style="width: 16.666666666666668%"><a href="/blog/">主页</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a target="_blank" rel="noopener" href="https://linngc.github.io/blog/">技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a target="_blank" rel="noopener" href="https://linngc.github.io/blog/">技术笔记</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/blog/tags/Java/">Java</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/Java/">Java</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/blog/tags/Golang/">Golang</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/golang/">Golang</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/blog/tags/Linux/">Linux</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/Linux/">Linux</a></li>
 		        
-					<li style="width: 16.666666666666668%"><a href="/blog/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/docker/">Docker</a></li>
+		        
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/%E9%9A%8F%E7%AC%94/">随笔</a></li>
 		        
 				</ul>
 			</nav>
@@ -230,6 +236,219 @@
           </div>
           <div id="js-content" class="content-ll">
             
+
+  
+    <article id="post-tags/随笔/docker免密登陆宿主机步骤" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/" target="_blank">docker免密登陆宿主机步骤</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
+        <time datetime="2022-11-23T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（usv_platform_1.0.0为运行的容器别名）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker exec -it usv_platform_1.0.0 /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -P &quot;&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/cdn/docker/1.png" alt="image"></p>
+<p>3.进入到ssh目录（在容器中），可以看到两个文件，id_rsa为私钥，id_rsa.pub为公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ～/.ssh</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/cdn/docker/2.png" alt="image"></p>
+<p>4.将容器中的id_rsa.pub内的字符串拷贝追加到宿主机的authorized_keys文件中，即可实现SSH免密登录<br>容器机的id_rsa.pub文件路径：&#x2F;home&#x2F;用户名&#x2F;.ssh&#x2F;id_rsa.pub<br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：&#x2F;home&#x2F;yunzhou&#x2F;.ssh&#x2F;authorized_keys</p>
+<p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-tags/docker/1.Docker命令大全之run命令" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/" target="_blank">1.Docker命令大全之run命令</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/" class="archive-article-date">
+        <time datetime="2022-11-23T09:06:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h3 id="Docker-run-命令"><a href="#Docker-run-命令" class="headerlink" title="Docker run 命令"></a>Docker run 命令</h3><p><strong>docker run</strong> ：创建一个新的容器并运行一个命令</p>
+<h4 id="语法"><a href="#语法" class="headerlink" title="语法"></a>语法</h4><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run [OPTIONS] IMAGE [COMMAND] [ARG...]</span><br></pre></td></tr></table></figure>
+<p><strong>OPTIONS说明：</strong></p>
+<ul>
+<li><p>-a stdin: 指定标准输入输出内容类型，可选 STDIN&#x2F;STDOUT&#x2F;STDERR 三项；</p>
+</li>
+<li><p>-d: 后台运行容器，并返回容器ID；</p>
+</li>
+<li><p>-i: 以交互模式运行容器，通常与 -t 同时使用；</p>
+</li>
+<li><p>-P: 随机端口映射，容器内部端口随机映射到主机的端口</p>
+</li>
+<li><p>-p: 指定端口映射，格式为：主机(宿主)端口:容器端口</p>
+</li>
+<li><p>t: 为容器重新分配一个伪输入终端，通常与 -i 同时使用；</p>
+</li>
+<li><p>–name&#x3D;”nginx-lb”: 为容器指定一个名称；</p>
+</li>
+<li><p>–dns 8.8.8.8: 指定容器使用的DNS服务器，默认和宿主一致；</p>
+</li>
+<li><p>–dns-search example.com: 指定容器DNS搜索域名，默认和宿主一致；</p>
+</li>
+<li><p>-h “mars”: 指定容器的hostname；</p>
+</li>
+<li><p>-e username&#x3D;”ritchie”: 设置环境变量；</p>
+</li>
+<li><p>–env-file&#x3D;[]: 从指定文件读入环境变量；</p>
+</li>
+<li><p>–cpuset&#x3D;”0-2” or –cpuset&#x3D;”0,1,2”: 绑定容器到指定CPU运行；</p>
+</li>
+<li><p>-m :设置容器使用内存最大值；</p>
+</li>
+<li><p>–net&#x3D;”bridge”: 指定容器的网络连接类型，支持 bridge&#x2F;host&#x2F;none&#x2F;container: 四种类型；</p>
+</li>
+<li><p>–link&#x3D;[]: 添加链接到另一个容器；</p>
+</li>
+<li><p>–expose&#x3D;[]: 开放一个端口或一组端口；</p>
+</li>
+<li><p>–volume , -v: 绑定一个卷</p>
+</li>
+</ul>
+<h4 id="实例"><a href="#实例" class="headerlink" title="实例"></a>实例</h4><p>1.使用docker镜像nginx:latest以后台模式启动一个容器,并将容器命名为mynginx。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run --name mynginx -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>2.使用镜像nginx:latest以后台模式启动一个容器,并将容器的80端口映射到主机随机端口。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -P -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>3.使用镜像 nginx:latest，以后台模式启动一个容器,将容器的 80 端口映射到主机的 80 端口,主机的目录 &#x2F;data 映射到容器的 &#x2F;data。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -p 80:80 -v /data:/data -d nginx:latest</span><br></pre></td></tr></table></figure>
+
+<p>4.绑定容器的 8080 端口，并将其映射到本地主机 127.0.0.1 的 80 端口上。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker run -p 127.0.0.1:80:8080/tcp ubuntu bash</span><br></pre></td></tr></table></figure>
+
+<p>5.使用镜像nginx:latest以交互模式启动一个容器,在容器内执行&#x2F;bin&#x2F;bash命令。</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">runoob@runoob:~$ docker run -it nginx:latest /bin/bash</span><br><span class="line">root@b8573233d675:/# </span><br></pre></td></tr></table></figure>
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
 
   
     <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">

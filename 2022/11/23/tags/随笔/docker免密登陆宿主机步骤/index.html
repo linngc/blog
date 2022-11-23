@@ -6,17 +6,24 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://example.com/blog">
-  <title>Archives | Webos个人笔记</title>
+  <title>docker免密登陆宿主机步骤 | Webos个人笔记</title>
   <meta name="generator" content="hexo-theme-yilia-plus">
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   
-  <meta property="og:type" content="website">
-<meta property="og:title" content="Webos个人笔记">
-<meta property="og:url" content="http://example.com/blog/archives/index.html">
+  <meta name="description" content="艇端项目docker容器配置免密登录操作步骤1.进入docker容器（usv_platform_1.0.0为运行的容器别名） 1$ docker exec -it usv_platform_1.0.0 &#x2F;bin&#x2F;bash  2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件） 1$ ssh-keygen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="docker免密登陆宿主机步骤">
+<meta property="og:url" content="http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/index.html">
 <meta property="og:site_name" content="Webos个人笔记">
+<meta property="og:description" content="艇端项目docker容器配置免密登录操作步骤1.进入docker容器（usv_platform_1.0.0为运行的容器别名） 1$ docker exec -it usv_platform_1.0.0 &#x2F;bin&#x2F;bash  2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件） 1$ ssh-keygen">
 <meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://example.com/blog/cdn/docker/1.png">
+<meta property="og:image" content="http://example.com/blog/cdn/docker/2.png">
+<meta property="article:published_time" content="2022-11-23T09:20:59.000Z">
+<meta property="article:modified_time" content="2022-11-23T09:29:51.077Z">
 <meta property="article:author" content="凌晨">
 <meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://example.com/blog/cdn/docker/1.png">
   
     <link rel="alternative" href="/blog/atom.xml" title="Webos个人笔记" type="application/atom+xml">
   
@@ -231,118 +238,234 @@
               class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
+            <article id="post-tags/随笔/docker免密登陆宿主机步骤" class="article article-type-post " itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
   
   
-    
-    
-      
-      
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/blog/archives/2022" class="archive-year">2022</a>
-        </div>
-        <div class="archives">
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
+    <h1 class="article-title" itemprop="name">
+      docker免密登陆宿主机步骤
+    </h1>
+  
+
+
+  
+  
+        
+        <span id="busuanzi_container_page_pv" style='display:none' class="archive-article-date">
+              <i class="icon-smile icon"></i> 阅读数：<span id="busuanzi_value_page_pv"></span>次
+        </span>
+
 <a href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/" class="archive-article-date">
         <time datetime="2022-11-23T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
 </a>
 
+  
+  
+    
+<div style="margin-top:10px;">
+  <span class="post-time">
+    <span class="post-meta-item-icon">
+      <!-- fonts.scss -->
+      <!-- 百度字体平台:http://fontstore.baidu.com/static/editor/index.html -->
+      <i class="icon-statistics"></i>
+      <span class="post-meta-item-text"> 字数统计:</span>
+      <span class="post-count">228字</span>
+    </span>
+  </span>
+
+  <span class="post-time">
+    &nbsp; | &nbsp;
+    <span class="post-meta-item-icon">
+      <i class="icon-book icon"></i>
+      <span class="post-meta-item-text"> 阅读时长≈</span>
+      <span class="post-count">1分</span>
+    </span>
+  </span>
+</div>
+
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（usv_platform_1.0.0为运行的容器别名）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ docker exec -it usv_platform_1.0.0 /bin/bash</span><br></pre></td></tr></table></figure>
+
+<p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件）</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ ssh-keygen -t rsa -P &quot;&quot;</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/cdn/docker/1.png" alt="image"></p>
+<p>3.进入到ssh目录（在容器中），可以看到两个文件，id_rsa为私钥，id_rsa.pub为公钥</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">$ cd ～/.ssh</span><br></pre></td></tr></table></figure>
+<p><img src="/blog/cdn/docker/2.png" alt="image"></p>
+<p>4.将容器中的id_rsa.pub内的字符串拷贝追加到宿主机的authorized_keys文件中，即可实现SSH免密登录<br>容器机的id_rsa.pub文件路径：&#x2F;home&#x2F;用户名&#x2F;.ssh&#x2F;id_rsa.pub<br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：&#x2F;home&#x2F;yunzhou&#x2F;.ssh&#x2F;authorized_keys</p>
+<p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>
+
+    
+
+    
+    <div class="page-reward">
+      <a href="javascript:void(0);" class="page-reward-btn tooltip-top" target="_self">
+        <div class="tooltip tooltip-east">
+          <span class="tooltip-item">
+            赏
+          </span>
+          <span class="tooltip-content">
+            <span class="tooltip-text">
+              <span class="tooltip-inner">
+                <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i
+                    class="icon icon-quo-right"></i></p>
+                <div class="reward-box">
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/blog/img/alipay.jpg">
+                    <span class="reward-type">支付宝</span>
+                  </div>
+                  
+                  
+                  <div class="reward-box-item">
+                    <img class="reward-img" src="/blog/img/weixin.png">
+                    <span class="reward-type">微信</span>
+                  </div>
+                  
+                </div>
+              </span>
+            </span>
+          </span>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/" target="_blank">docker免密登陆宿主机步骤</a>
-  
-    </h1>
-  
+      </a>
+    </div>
+    
 
-
-        <div class="article-info info-on-right">
+    
+    <div class="declare"> 
+      <ul class="post-copyright">
+        <li>
+          <strong>本文作者：</strong>
+          凌晨
+        </li>
+        <li>
+          <strong>本文链接：</strong>
+          <a href="http://example.com/blog/blog/2022/11/23/tags/随笔/docker免密登陆宿主机步骤/" title="docker免密登陆宿主机步骤" target="_blank">http://example.com/blog/blog/2022/11/23/tags/随笔/docker免密登陆宿主机步骤/</a>
+        </li>
+        
+        <li>
+          <strong>版权声明： </strong>
           
-          
+          本博客所有文章除特别声明外，均采用 <a href="https://github.com/JoeyBling/hexo-theme-yilia-plus/blob/master/LICENSE" rel="external nofollow" target="_blank">MIT</a> 许可协议。转载请注明出处！
+        </li>
+        
+      </ul>
+    </div>
+    
 
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+    
+
+    
+
+    
+    
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <!-- <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a> -->
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
         </div>
-        <div class="clearfix"></div>
-    </header>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+     <!-- <img src="//pan.baidu.com/share/qrcode?url=http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/" alt="微信分享二维码"> -->
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
+
+    
+    <div class="clearfix"></div>
+  </div>
   </div>
 </article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/" class="archive-article-date">
-        <time datetime="2022-11-23T09:06:21.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
-</a>
 
+
+<nav id="article-nav">
+  
+  
+    <a href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">1.Docker命令大全之run命令</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
         </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/" target="_blank">1.Docker命令大全之run命令</a>
-  
-    </h1>
-  
+        
+        
+    </div>
+</aside>
 
 
-        <div class="article-info info-on-right">
-          
-          
-
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-    
-    
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      	<div class="article-meta">
-	      	
-<a href="/blog/2022/11/23/hello-world/" class="archive-article-date">
-        <time datetime="2022-11-23T07:15:51.104Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
-</a>
-
-        </div>
-    	 
-  
-    <h1 itemprop="name">
-	
-	  <a class="archive-article-title" href="/blog/2022/11/23/hello-world/" target="_blank">Hello World</a>
-  
-    </h1>
-  
 
 
-        <div class="article-info info-on-right">
-          
-          
 
-        </div>
-        <div class="clearfix"></div>
-    </header>
-  </div>
-</article>
-  
-  
-    </div></section>
-  
 
-    
+
+
+
+
+
+
 
 
           </div>
@@ -383,8 +506,8 @@
 	var yiliaConfig = {
 		mathjax: false,
 		isHome: false,
-		isPost: false,
-		isArchive: true,
+		isPost: true,
+		isArchive: false,
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
