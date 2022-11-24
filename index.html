@@ -75,7 +75,7 @@
 			
 				<li><a href="/blog/" target="_blank">主页</a></li>
 			
-				<li><a href="https://linngc.github.io/blog/" target="_blank">技术笔记</a></li>
+				<li><a href="/blog/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/" target="_blank">技术笔记</a></li>
 			
 				<li><a href="/blog/tags/Java/" target="_blank">Java</a></li>
 			
@@ -209,7 +209,7 @@
 				
 					<li style="width: 14.285714285714286%"><a href="/blog/">主页</a></li>
 		        
-					<li style="width: 14.285714285714286%"><a target="_blank" rel="noopener" href="https://linngc.github.io/blog/">技术笔记</a></li>
+					<li style="width: 14.285714285714286%"><a href="/blog/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/">技术笔记</a></li>
 		        
 					<li style="width: 14.285714285714286%"><a href="/blog/tags/Java/">Java</a></li>
 		        
@@ -267,16 +267,16 @@
   
   <div class="article-entry" itemprop="articleBody">
     
-    <h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（usv_platform_1.0.0为运行的容器别名）</p>
+    <h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（<code>usv_platform_1.0.0</code> 为运行的容器别名）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it usv_platform_1.0.0 /bin/bash</span></span><br></pre></td></tr></table></figure>
 
-<p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在&#x2F;home&#x2F;用户名&#x2F;.ssh路径下生成两个文件）</p>
+<p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在<code>/home/用户名/.ssh</code> 路径下生成两个文件）</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -P <span class="string">&quot;&quot;</span></span></span><br></pre></td></tr></table></figure>
 <p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/1.png" alt="image"></p>
-<p>3.进入到ssh目录（在容器中），可以看到两个文件，id_rsa为私钥，id_rsa.pub为公钥</p>
+<p>3.进入到ssh目录（在容器中），可以看到两个文件，<code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ～/.ssh</span></span><br></pre></td></tr></table></figure>
 <p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/2.png" alt="image"></p>
-<p>4.将容器中的id_rsa.pub内的字符串拷贝追加到宿主机的authorized_keys文件中，即可实现SSH免密登录<br>容器机的id_rsa.pub文件路径：&#x2F;home&#x2F;用户名&#x2F;.ssh&#x2F;id_rsa.pub<br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：&#x2F;home&#x2F;yunzhou&#x2F;.ssh&#x2F;authorized_keys</p>
+<p>4.将容器中<code>的id_rsa.pub</code>内的字符串拷贝追加到宿主机的<code>authorized_keys</code>文件中，即可实现SSH免密登录<br>容器机的<code>id_rsa.pub</code>文件路径：<code>/home/用户名/.ssh/id_rsa.pub</code><br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：<code>/home/yunzhou/.ssh/authorized_keys</code></p>
 <p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>
 
     
@@ -419,110 +419,6 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95/">展开全文 >></a>
-    </p>
-    
-
-    
-    <div class="clearfix"></div>
-  </div>
-  </div>
-</article>
-
-<aside class="wrap-side-operation">
-    <div class="mod-side-operation">
-        
-        <div class="jump-container" id="js-jump-container" style="display:none;">
-            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
-                <i class="icon-font icon-back"></i>
-            </a>
-            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
-                <i class="icon-font icon-plane jump-plane"></i>
-            </div>
-        </div>
-        
-        
-    </div>
-</aside>
-
-
-
-
-  
-    <article id="post-tags/随笔/hexo搭建资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-  
-  
-    <h1 itemprop="name">
-	
-	  <a class="article-title" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/" target="_blank">hexo搭建资料</a>
-  
-    </h1>
-  
-
-
-  
-  
-<a href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/" class="archive-article-date">
-        <time datetime="2022-11-23T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
-</a>
-
-  
-  
-    
-
-  
-  </header>
-  
-  <div class="article-entry" itemprop="articleBody">
-    
-    <ol>
-<li>hexo官方网站<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands#migrate">https://hexo.io/zh-cn/docs/commands#migrate</a></li>
-<li>现使用皮肤<br><a target="_blank" rel="noopener" href="https://github.com/JoeyBling/hexo-theme-yilia-plus">https://github.com/JoeyBling/hexo-theme-yilia-plus</a></li>
-</ol>
-
-    
-
-    
-
-    
-
-  </div>
-  <div class="article-info article-info-index">
-    
-    
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-    
-	<div class="article-category tagcloud">
-		<i class="icon-book icon"></i>
-		<ul class="article-tag-list">
-			 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/hexo//" class="article-tag-list-link color5">hexo</a>
-        		</li>
-      		 
-        		<li class="article-tag-list-item">
-        			<a href="/blog/categories/hexo/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
-        		</li>
-      		
-		</ul>
-	</div>
-
-
-    
-    <p class="article-more-link">
-      <a class="article-more-a" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/">展开全文 >></a>
     </p>
     
 
@@ -707,6 +603,110 @@
     
     <p class="article-more-link">
       <a class="article-more-a" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/">展开全文 >></a>
+    </p>
+    
+
+    
+    <div class="clearfix"></div>
+  </div>
+  </div>
+</article>
+
+<aside class="wrap-side-operation">
+    <div class="mod-side-operation">
+        
+        <div class="jump-container" id="js-jump-container" style="display:none;">
+            <a href="javascript:void(0)" class="mod-side-operation__jump-to-top">
+                <i class="icon-font icon-back"></i>
+            </a>
+            <div id="js-jump-plan-container" class="jump-plan-container" style="top: -11px;">
+                <i class="icon-font icon-plane jump-plane"></i>
+            </div>
+        </div>
+        
+        
+    </div>
+</aside>
+
+
+
+
+  
+    <article id="post-tags/随笔/hexo搭建资料" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+  <div class="article-inner">
+    
+      <header class="article-header">
+  
+  
+    <h1 itemprop="name">
+	
+	  <a class="article-title" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/" target="_blank">hexo搭建资料</a>
+  
+    </h1>
+  
+
+
+  
+  
+<a href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/" class="archive-article-date">
+        <time datetime="2022-11-23T09:20:59.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2022-11-23</time>
+</a>
+
+  
+  
+    
+
+  
+  </header>
+  
+  <div class="article-entry" itemprop="articleBody">
+    
+    <ol>
+<li>hexo官方网站<br><a target="_blank" rel="noopener" href="https://hexo.io/zh-cn/docs/commands#migrate">https://hexo.io/zh-cn/docs/commands#migrate</a></li>
+<li>现使用皮肤<br><a target="_blank" rel="noopener" href="https://github.com/JoeyBling/hexo-theme-yilia-plus">https://github.com/JoeyBling/hexo-theme-yilia-plus</a></li>
+</ol>
+
+    
+
+    
+
+    
+
+  </div>
+  <div class="article-info article-info-index">
+    
+    
+	<div class="article-tag tagcloud">
+		<i class="icon-price-tags icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="javascript:void(0)" class="js-tag article-tag-list-link color3">随笔</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+    
+	<div class="article-category tagcloud">
+		<i class="icon-book icon"></i>
+		<ul class="article-tag-list">
+			 
+        		<li class="article-tag-list-item">
+        			<a href="/blog/categories/hexo//" class="article-tag-list-link color5">hexo</a>
+        		</li>
+      		 
+        		<li class="article-tag-list-item">
+        			<a href="/blog/categories/hexo/博客搭建//" class="article-tag-list-link color5">博客搭建</a>
+        		</li>
+      		
+		</ul>
+	</div>
+
+
+    
+    <p class="article-more-link">
+      <a class="article-more-a" href="/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/">展开全文 >></a>
     </p>
     
 
