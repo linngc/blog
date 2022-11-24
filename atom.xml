@@ -3,11 +3,11 @@
   <title>Webos个人笔记</title>
   
   
-  <link href="http://example.com/blog/atom.xml" rel="self"/>
+  <link href="https://linngc.github.io/atom.xml" rel="self"/>
   
-  <link href="http://example.com/blog/"/>
-  <updated>2022-11-24T02:07:01.144Z</updated>
-  <id>http://example.com/blog/</id>
+  <link href="https://linngc.github.io/"/>
+  <updated>2022-11-24T02:27:23.569Z</updated>
+  <id>https://linngc.github.io/</id>
   
   <author>
     <name>凌晨</name>
@@ -17,31 +17,9 @@
   <generator uri="https://hexo.io/">Hexo</generator>
   
   <entry>
-    <title>docker免密登陆宿主机步骤</title>
-    <link href="http://example.com/blog/2022/11/23/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/"/>
-    <id>http://example.com/blog/2022/11/23/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/</id>
-    <published>2022-11-23T09:20:59.000Z</published>
-    <updated>2022-11-24T02:07:01.144Z</updated>
-    
-    <content type="html"><![CDATA[<h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（<code>usv_platform_1.0.0</code> 为运行的容器别名）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it usv_platform_1.0.0 /bin/bash</span></span><br></pre></td></tr></table></figure><p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在<code>/home/用户名/.ssh</code> 路径下生成两个文件）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -P <span class="string">&quot;&quot;</span></span></span><br></pre></td></tr></table></figure><p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/1.png" alt="image"></p><p>3.进入到ssh目录（在容器中），可以看到两个文件，<code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ～/.ssh</span></span><br></pre></td></tr></table></figure><p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/2.png" alt="image"></p><p>4.将容器中<code>的id_rsa.pub</code>内的字符串拷贝追加到宿主机的<code>authorized_keys</code>文件中，即可实现SSH免密登录<br>容器机的<code>id_rsa.pub</code>文件路径：<code>/home/用户名/.ssh/id_rsa.pub</code><br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：<code>/home/yunzhou/.ssh/authorized_keys</code></p><p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>]]></content>
-    
-    
-      
-      
-    <summary type="html">&lt;h4 id=&quot;艇端项目docker容器配置免密登录操作步骤&quot;&gt;&lt;a href=&quot;#艇端项目docker容器配置免密登录操作步骤&quot; class=&quot;headerlink&quot; title=&quot;艇端项目docker容器配置免密登录操作步骤&quot;&gt;&lt;/a&gt;艇端项目docker容器配置免密登录操作</summary>
-      
-    
-    
-    
-    
-    <category term="技术笔记" scheme="http://example.com/blog/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
-    
-  </entry>
-  
-  <entry>
     <title>Markdown使用-文字加强</title>
-    <link href="http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/Markdown%E4%BD%BF%E7%94%A8-%E6%96%87%E5%AD%97%E5%8A%A0%E5%BC%BA/"/>
-    <id>http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/Markdown%E4%BD%BF%E7%94%A8-%E6%96%87%E5%AD%97%E5%8A%A0%E5%BC%BA/</id>
+    <link href="https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/Markdown%E4%BD%BF%E7%94%A8-%E6%96%87%E5%AD%97%E5%8A%A0%E5%BC%BA/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/Markdown%E4%BD%BF%E7%94%A8-%E6%96%87%E5%AD%97%E5%8A%A0%E5%BC%BA/</id>
     <published>2022-11-23T09:20:59.000Z</published>
     <updated>2022-11-24T02:27:23.569Z</updated>
     
@@ -56,43 +34,39 @@
     
     
     
-    <category term="Markdown使用" scheme="http://example.com/blog/categories/Markdown%E4%BD%BF%E7%94%A8/"/>
+    <category term="Markdown使用" scheme="https://linngc.github.io/categories/Markdown%E4%BD%BF%E7%94%A8/"/>
     
     
-    <category term="随笔" scheme="http://example.com/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://linngc.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
-    <title>Hexo为文章设置目录与标签的方法</title>
-    <link href="http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95/"/>
-    <id>http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <title>docker免密登陆宿主机步骤</title>
+    <link href="https://linngc.github.io/2022/11/23/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/</id>
     <published>2022-11-23T09:20:59.000Z</published>
-    <updated>2022-11-24T01:32:54.794Z</updated>
+    <updated>2022-11-24T02:07:01.144Z</updated>
     
-    <content type="html"><![CDATA[<h3 id="1-创建目录页"><a href="#1-创建目录页" class="headerlink" title="1. 创建目录页"></a>1. 创建目录页</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page golang</span><br></pre></td></tr></table></figure><pre><code>Hexo(主目录)\source 目录中会生成一个 golang 文件夹，文件夹内有一个 index.md 文件，打开此文件，将其中的 type 修改为 golang 即可。</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-08-16 10:27:28</span><br><span class="line">type: &quot;golang&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure><h3 id="2-创建标签页"><a href="#2-创建标签页" class="headerlink" title="2. 创建标签页"></a>2. 创建标签页</h3><p>    创建标签页与创建目录页方法相同。在网站根目录下执行以下代码。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure><pre><code>Hexo\source 目录中会生成一个 tags文件夹，文件夹内也有一个 index.md 文件，打开此文件，将其中的 type 修改为 tags 即可。</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-08-16 10:27:28</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure><h3 id="3-为文章设置目录与标签"><a href="#3-为文章设置目录与标签" class="headerlink" title="3. 为文章设置目录与标签"></a>3. 为文章设置目录与标签</h3><p>   在 Hexo\source_posts 目录中创建.md文件即新建了一篇博客，在文章的开头部分添加如下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: 这里是文章的标题</span><br><span class="line">date: 这里是发表时间，如：2021-08-15 08:15:16</span><br><span class="line">description: 这里填写摘要。也可以把摘要这一段删去，在文章中想要截断的地方加入 &lt;!--more--&gt; ，这样在首页就只显示开头到截断的内容，而不会显示全文</span><br><span class="line">categories:</span><br><span class="line">- 分类</span><br><span class="line">- 子分类</span><br><span class="line">tags:</span><br><span class="line">- golang</span><br><span class="line">- java</span><br></pre></td></tr></table></figure>]]></content>
+    <content type="html"><![CDATA[<h4 id="艇端项目docker容器配置免密登录操作步骤"><a href="#艇端项目docker容器配置免密登录操作步骤" class="headerlink" title="艇端项目docker容器配置免密登录操作步骤"></a>艇端项目docker容器配置免密登录操作步骤</h4><p>1.进入docker容器（<code>usv_platform_1.0.0</code> 为运行的容器别名）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">docker <span class="built_in">exec</span> -it usv_platform_1.0.0 /bin/bash</span></span><br></pre></td></tr></table></figure><p>2.在docker容器执行以下指令，并按回车键继续（执行指令后，会在<code>/home/用户名/.ssh</code> 路径下生成两个文件）</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash">ssh-keygen -t rsa -P <span class="string">&quot;&quot;</span></span></span><br></pre></td></tr></table></figure><p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/1.png" alt="image"></p><p>3.进入到ssh目录（在容器中），可以看到两个文件，<code>id_rsa</code>为私钥，<code>id_rsa.pub</code>为公钥</p><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta prompt_">$ </span><span class="language-bash"><span class="built_in">cd</span> ～/.ssh</span></span><br></pre></td></tr></table></figure><p><img src="/blog/cdn/%E9%9A%8F%E7%AC%94/docker%E5%85%8D%E5%AF%86%E7%99%BB%E9%99%86%E5%AE%BF%E4%B8%BB%E6%9C%BA%E6%AD%A5%E9%AA%A4/2.png" alt="image"></p><p>4.将容器中<code>的id_rsa.pub</code>内的字符串拷贝追加到宿主机的<code>authorized_keys</code>文件中，即可实现SSH免密登录<br>容器机的<code>id_rsa.pub</code>文件路径：<code>/home/用户名/.ssh/id_rsa.pub</code><br>宿主机的authorized_keys文件（不存在则自行创建文件）路径：<code>/home/yunzhou/.ssh/authorized_keys</code></p><p>5.执行指以上操作后，在控制台验证SSH指令是否能正常免密</p>]]></content>
     
     
       
       
-    <summary type="html">&lt;h3 id=&quot;1-创建目录页&quot;&gt;&lt;a href=&quot;#1-创建目录页&quot; class=&quot;headerlink&quot; title=&quot;1. 创建目录页&quot;&gt;&lt;/a&gt;1. 创建目录页&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td </summary>
+    <summary type="html">&lt;h4 id=&quot;艇端项目docker容器配置免密登录操作步骤&quot;&gt;&lt;a href=&quot;#艇端项目docker容器配置免密登录操作步骤&quot; class=&quot;headerlink&quot; title=&quot;艇端项目docker容器配置免密登录操作步骤&quot;&gt;&lt;/a&gt;艇端项目docker容器配置免密登录操作</summary>
       
     
     
     
-    <category term="hexo" scheme="http://example.com/blog/categories/hexo/"/>
     
-    <category term="博客搭建" scheme="http://example.com/blog/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
-    
-    
-    <category term="随笔" scheme="http://example.com/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="技术笔记" scheme="https://linngc.github.io/tags/%E6%8A%80%E6%9C%AF%E7%AC%94%E8%AE%B0/"/>
     
   </entry>
   
   <entry>
     <title>hexo常用指令</title>
-    <link href="http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
-    <id>http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
+    <link href="https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E5%B8%B8%E7%94%A8%E6%8C%87%E4%BB%A4/</id>
     <published>2022-11-23T09:20:59.000Z</published>
     <updated>2022-11-24T01:51:56.728Z</updated>
     
@@ -109,19 +83,45 @@
     
     
     
-    <category term="hexo" scheme="http://example.com/blog/categories/hexo/"/>
+    <category term="hexo" scheme="https://linngc.github.io/categories/hexo/"/>
     
-    <category term="博客搭建" scheme="http://example.com/blog/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="https://linngc.github.io/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
-    <category term="随笔" scheme="http://example.com/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://linngc.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>Hexo为文章设置目录与标签的方法</title>
+    <link href="https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E4%B8%BA%E6%96%87%E7%AB%A0%E8%AE%BE%E7%BD%AE%E7%9B%AE%E5%BD%95%E4%B8%8E%E6%A0%87%E7%AD%BE%E7%9A%84%E6%96%B9%E6%B3%95/</id>
+    <published>2022-11-23T09:20:59.000Z</published>
+    <updated>2022-11-24T01:32:54.794Z</updated>
+    
+    <content type="html"><![CDATA[<h3 id="1-创建目录页"><a href="#1-创建目录页" class="headerlink" title="1. 创建目录页"></a>1. 创建目录页</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page golang</span><br></pre></td></tr></table></figure><pre><code>Hexo(主目录)\source 目录中会生成一个 golang 文件夹，文件夹内有一个 index.md 文件，打开此文件，将其中的 type 修改为 golang 即可。</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-08-16 10:27:28</span><br><span class="line">type: &quot;golang&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure><h3 id="2-创建标签页"><a href="#2-创建标签页" class="headerlink" title="2. 创建标签页"></a>2. 创建标签页</h3><p>    创建标签页与创建目录页方法相同。在网站根目录下执行以下代码。</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hexo new page tags</span><br></pre></td></tr></table></figure><pre><code>Hexo\source 目录中会生成一个 tags文件夹，文件夹内也有一个 index.md 文件，打开此文件，将其中的 type 修改为 tags 即可。</code></pre><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">title: 分类</span><br><span class="line">date: 2021-08-16 10:27:28</span><br><span class="line">type: &quot;tags&quot;</span><br><span class="line">comments: false</span><br></pre></td></tr></table></figure><h3 id="3-为文章设置目录与标签"><a href="#3-为文章设置目录与标签" class="headerlink" title="3. 为文章设置目录与标签"></a>3. 为文章设置目录与标签</h3><p>   在 Hexo\source_posts 目录中创建.md文件即新建了一篇博客，在文章的开头部分添加如下代码</p><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">title: 这里是文章的标题</span><br><span class="line">date: 这里是发表时间，如：2021-08-15 08:15:16</span><br><span class="line">description: 这里填写摘要。也可以把摘要这一段删去，在文章中想要截断的地方加入 &lt;!--more--&gt; ，这样在首页就只显示开头到截断的内容，而不会显示全文</span><br><span class="line">categories:</span><br><span class="line">- 分类</span><br><span class="line">- 子分类</span><br><span class="line">tags:</span><br><span class="line">- golang</span><br><span class="line">- java</span><br></pre></td></tr></table></figure>]]></content>
+    
+    
+      
+      
+    <summary type="html">&lt;h3 id=&quot;1-创建目录页&quot;&gt;&lt;a href=&quot;#1-创建目录页&quot; class=&quot;headerlink&quot; title=&quot;1. 创建目录页&quot;&gt;&lt;/a&gt;1. 创建目录页&lt;/h3&gt;&lt;figure class=&quot;highlight plaintext&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td </summary>
+      
+    
+    
+    
+    <category term="hexo" scheme="https://linngc.github.io/categories/hexo/"/>
+    
+    <category term="博客搭建" scheme="https://linngc.github.io/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    
+    
+    <category term="随笔" scheme="https://linngc.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>hexo搭建资料</title>
-    <link href="http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/"/>
-    <id>http://example.com/blog/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/</id>
+    <link href="https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/%E9%9A%8F%E7%AC%94/hexo%E6%90%AD%E5%BB%BA%E8%B5%84%E6%96%99/</id>
     <published>2022-11-23T09:20:59.000Z</published>
     <updated>2022-11-24T01:40:39.990Z</updated>
     
@@ -137,19 +137,19 @@
     
     
     
-    <category term="hexo" scheme="http://example.com/blog/categories/hexo/"/>
+    <category term="hexo" scheme="https://linngc.github.io/categories/hexo/"/>
     
-    <category term="博客搭建" scheme="http://example.com/blog/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
+    <category term="博客搭建" scheme="https://linngc.github.io/categories/hexo/%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA/"/>
     
     
-    <category term="随笔" scheme="http://example.com/blog/tags/%E9%9A%8F%E7%AC%94/"/>
+    <category term="随笔" scheme="https://linngc.github.io/tags/%E9%9A%8F%E7%AC%94/"/>
     
   </entry>
   
   <entry>
     <title>1.Docker命令大全之run命令</title>
-    <link href="http://example.com/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/"/>
-    <id>http://example.com/blog/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/</id>
+    <link href="https://linngc.github.io/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/"/>
+    <id>https://linngc.github.io/2022/11/23/tags/docker/1.Docker%E5%91%BD%E4%BB%A4%E5%A4%A7%E5%85%A8%E4%B9%8Brun%E5%91%BD%E4%BB%A4/</id>
     <published>2022-11-23T09:06:21.000Z</published>
     <updated>2022-11-24T01:12:15.469Z</updated>
     
@@ -164,14 +164,14 @@
     
     
     
-    <category term="docker" scheme="http://example.com/blog/tags/docker/"/>
+    <category term="docker" scheme="https://linngc.github.io/tags/docker/"/>
     
   </entry>
   
   <entry>
     <title>Hello World</title>
-    <link href="http://example.com/blog/2022/11/23/hello-world/"/>
-    <id>http://example.com/blog/2022/11/23/hello-world/</id>
+    <link href="https://linngc.github.io/2022/11/23/hello-world/"/>
+    <id>https://linngc.github.io/2022/11/23/hello-world/</id>
     <published>2022-11-23T07:15:51.104Z</published>
     <updated>2022-10-17T12:43:50.000Z</updated>
     
